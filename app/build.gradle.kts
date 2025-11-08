@@ -1,6 +1,5 @@
 plugins {
     application
-    id("org.sonarqube") version "7.0.1.6134"
 }
 
 repositories {
@@ -20,12 +19,4 @@ tasks.test {
     useJUnitPlatform()
 }
 
-sonar {
-    properties {
-        property("sonar.projectKey", "Vitaliy-Golikov_java-project-61")
-        property("sonar.organization", "vitaliy-golikov")
-        property("sonar.projectName", "java-project-61")
-        property("sonar.host.url", "https://sonarcloud.io")
-        property("sonar.token", System.getenv("SONAR_TOKEN"))
-    }
-}
+// Временно уберите плагин sonarqube для теста

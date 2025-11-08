@@ -1,16 +1,20 @@
 name: SonarQube
+
 on:
   push:
     branches:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -31,15 +35,13 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('app/**/*.gradle*', 'app/**/gradle-wrapper.properties') }}
           restore-keys: ${{ runner.os }}-gradle
 
-      - name: Make gradlew executable
-        run: chmod +x ./app/gradlew
-
       - name: Build and analyze
+        working-directory: ./app
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        working-directory: ./app  # Ключевое изменение!
         run: |
-          ./gradlew clean build sonar --no-daemon --info
+          chmod +x ./gradlew
+          ./gradlew clean build jacocoTestReport sonar --no-daemon --info

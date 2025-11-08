@@ -1,5 +1,6 @@
 plugins {
     application
+    id("org.sonarqube") version "7.0.1.6134"
 }
 
 repositories {
@@ -19,4 +20,9 @@ tasks.test {
     useJUnitPlatform()
 }
 
-// Временно уберите плагин sonarqube для теста
+sonar {
+    properties {
+        property("sonar.projectKey", "Vitaliy-Golikov_java-project-61")
+        property("sonar.organization", "vitaliy-golikov")
+    }
+}

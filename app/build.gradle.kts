@@ -29,16 +29,3 @@ sonar {
         property("sonar.gradle.skipCompile", "true")
     }
 }
-
-checkstyle {
-    toolVersion = "10.12.5"
-    configFile = file("config/checkstyle/checkstyle.xml")
-}
-
-tasks.checkstyleMain {
-    source = fileTree("src/main/java")
-}
-
-tasks.checkstyleTest {
-    source = fileTree("src/test/java")
-}

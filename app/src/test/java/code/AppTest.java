@@ -1,7 +1,11 @@
 package code;
 
-public class AppTest {
-    public static void main(String[] args) {
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
+public class AppTest {
+    @Test
+    public void testApp() {
+        assertTrue(true);
     }
 }

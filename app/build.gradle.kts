@@ -1,6 +1,7 @@
 plugins {
     application
     id("org.sonarqube") version "4.4.1.3373"
+    checkstyle
 }
 
 repositories {
@@ -27,4 +28,17 @@ sonar {
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.gradle.skipCompile", "true")
     }
+}
+
+checkstyle {
+    toolVersion = "10.12.5"
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
+
+tasks.checkstyleMain {
+    source = fileTree("src/main/java")
+}
+
+tasks.checkstyleTest {
+    source = fileTree("src/test/java")
 }

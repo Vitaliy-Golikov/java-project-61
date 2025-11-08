@@ -1,6 +1,14 @@
 plugins {
     application
     id("com.github.ben-manes.versions") version "0.51.0"
+    id("org.sonarqube") version "7.0.1.6134"
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "Vitaliy-Golikov_java-project-61")
+        property("sonar.organization", "vitaliy-golikov")
+    }
 }
 
 application {

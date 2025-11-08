@@ -1,36 +1,26 @@
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-import org.gradle.api.tasks.testing.logging.TestLogEvent
-
 plugins {
     application
     id("org.sonarqube") version "7.0.1.6134"
-}
-
-group = "hexlet.code"
-version = "1.0-SNAPSHOT"
-
-application {
-    mainClass.set("hexlet.code.App")
 }
 
 repositories {
     mavenCentral()
 }
 
+application {
+    mainClass.set("hexlet.code.App")
+}
+
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {
     useJUnitPlatform()
-    testLogging {
-        exceptionFormat = TestExceptionFormat.FULL
-        events = setOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
-        showStandardStreams = true
-    }
 }
+
+// УДАЛИТЕ весь блок jacoco и jacocoTestReport
 
 sonar {
     properties {
@@ -43,7 +33,7 @@ sonar {
         property("sonar.tests", "src/test/java")
         property("sonar.java.binaries", "build/classes")
         property("sonar.junit.reportPaths", "build/test-results/test")
+        // УДАЛИТЕ эту строку: property("sonar.coverage.jacoco.xmlReportPaths", "...")
         property("sonar.sourceEncoding", "UTF-8")
-        property("sonar.java.source", "21")
     }
 }

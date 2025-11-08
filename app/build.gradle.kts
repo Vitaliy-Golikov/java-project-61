@@ -29,3 +29,11 @@ sonar {
         property("sonar.gradle.skipCompile", "true")
     }
 }
+
+tasks.register("run-dist") {
+    dependsOn("installDist")
+    doLast {
+        println("Application installed to: build/install/app/")
+        println("Run: .\\build\\install\\app\\bin\\app.bat")
+    }
+}

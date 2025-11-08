@@ -24,6 +24,16 @@
   </module>
 
   <module name="TreeWalker">
+    <!-- Suppressions for test files -->
+    <module name="SuppressionSingleFilter">
+      <property name="checks" value="NewlineAtEndOfFile"/>
+      <property name="files" value=".*Test\.java"/>
+    </module>
+    <module name="SuppressionSingleFilter">
+      <property name="checks" value="AvoidStarImport"/>
+      <property name="files" value=".*Test\.java"/>
+    </module>
+
     <!-- Naming conventions -->
     <module name="ConstantName"/>
     <module name="LocalVariableName"/>

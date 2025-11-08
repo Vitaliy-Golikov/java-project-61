@@ -8,11 +8,7 @@ plugins {
 sonar {
     properties {
         property("sonar.projectKey", "Vitaliy-Golikov_java-project-61")
-        property("sonar.organization", "vitaliy-golikov") // ТОЧНО так как в URL
-        property("sonar.host.url", "https://sonarcloud.io")
-        property("sonar.sourceEncoding", "UTF-8")
-        property("sonar.java.binaries", "build/classes")
-        property("sonar.java.source", "21")
+        property("sonar.organization", "vitaliy-golikov")
     }
 }
 

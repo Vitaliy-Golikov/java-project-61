@@ -37,3 +37,9 @@ tasks.register("run-dist") {
         println("Run: .\\build\\install\\app\\bin\\app.bat")
     }
 }
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}

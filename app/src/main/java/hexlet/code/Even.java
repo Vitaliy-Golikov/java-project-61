@@ -8,30 +8,36 @@ public class Even {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         int score = 0;
-        String userName = Cli.greet();
-        int randomNumber = random.nextInt(1, 21);
+        int i = 0;
+        int finalScore = 3;
+        User user = Cli.getCurrentUser();
+        String userName = user.getName();
+
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        for (int i = 0; i < score; i++) {
+        while (score < finalScore) {
+            int randomNumber = random.nextInt(1, 21);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
-            String answer = scanner.nextLine();
+            String preAnswer = scanner.nextLine();
+            String answer = preAnswer.toLowerCase().trim();
 
-            if (isEven(randomNumber) && answer.equals("yes") || !isEven(randomNumber) && answer.equals("no")) {
+            boolean numberIsEven = isEven(randomNumber);
+            boolean isCorrect = (numberIsEven && answer.equals("yes")) || (!numberIsEven && answer.equals("no"));
+
+            if (isCorrect) {
                 System.out.println("Correct!");
                 score++;
-            } else if (isEven(randomNumber) && answer.equals("no") || !isEven(randomNumber) && answer.equals("yes")) {
-                if (answer.equals("no")) {
-                    System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
-                    System.out.println("Let's try again, Bill!");
-                } else {
-                    System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-                    System.out.println("Let's try again, " + userName);
-                }
+            } else {
+                String correctAnswer = numberIsEven ? "yes" : "no";
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("Let's try again, " + userName + "!");
+                return;
             }
-
-
         }
+
+        System.out.println("Congratulations, " + userName + "!");
+
     }
 
     public static boolean isEven(int num) {

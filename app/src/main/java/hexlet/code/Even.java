@@ -8,7 +8,6 @@ public class Even {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         int score = 0;
-        int i = 0;
         int finalScore = 3;
         User user = Cli.getCurrentUser();
         String userName = user.getName();

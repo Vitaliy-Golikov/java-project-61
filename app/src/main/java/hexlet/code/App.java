@@ -29,6 +29,9 @@ public class App {
             case 4:
                 GameEngine.playGame(new Gcd());
                 break;
+            case 5:
+                GameEngine.playGame(new ProgressionGame());
+                break;
         }
 
     }

@@ -14,6 +14,10 @@ Brain Games
 5. **Progression** - Арифметическая прогрессия
 6. **Prime** - Простые числа
 
-**Greet**
+**Greet** - Приветствие и знакомство
 
 ![img.png](img.png)
+
+**Even** - Проверка числа на чётность
+
+![img_1.png](img_1.png) ![img_2.png](img_2.png)

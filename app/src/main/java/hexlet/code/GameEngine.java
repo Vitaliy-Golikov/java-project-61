@@ -18,7 +18,7 @@ public class GameEngine {
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
 
-            String userAnswer = scanner.nextLine();
+            String userAnswer = scanner.nextLine().trim().toLowerCase();
 
             if (game.checkAnswer(userAnswer)) {
                 System.out.println("Correct!");

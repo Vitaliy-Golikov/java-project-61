@@ -12,6 +12,8 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int number = scanner.nextInt();
@@ -21,17 +23,19 @@ public class App {
                 Cli.greet();
                 break;
             case 2:
-                GameEngine.playGame(new Even());
+                GameEngine.playGame(new EvenGame());
                 break;
             case 3:
-                GameEngine.playGame(new Calculator());
+                GameEngine.playGame(new CalculatorGame());
                 break;
             case 4:
-                GameEngine.playGame(new Gcd());
+                GameEngine.playGame(new GcdGame());
                 break;
             case 5:
                 GameEngine.playGame(new ProgressionGame());
                 break;
+            case 6:
+                GameEngine.playGame(new PrimeGame());
         }
 
     }

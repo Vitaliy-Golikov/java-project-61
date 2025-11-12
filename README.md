@@ -20,4 +20,7 @@ Brain Games
 
 **Even** - Проверка числа на чётность
 
-![img_1.png](img_1.png) ![img_2.png](img_2.png)
+Позитивный сценарий
+![img_1.png](img_1.png) 
+Негативный сценарий
+![img_2.png](img_2.png)

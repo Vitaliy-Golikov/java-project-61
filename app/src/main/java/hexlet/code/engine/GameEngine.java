@@ -1,5 +1,7 @@
-package hexlet.code;
+package hexlet.code.engine;
 
+import hexlet.code.game.Game;
+import hexlet.code.user.User;
 import java.util.Scanner;
 
 public class GameEngine {

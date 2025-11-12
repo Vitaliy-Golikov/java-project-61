@@ -1,5 +1,9 @@
 package hexlet.code;
 
+import hexlet.code.engine.Cli;
+import hexlet.code.engine.GameEngine;
+import hexlet.code.game.*;
+
 import java.util.Scanner;
 
 
@@ -36,6 +40,9 @@ public class App {
                 break;
             case 6:
                 GameEngine.playGame(new PrimeGame());
+                break;
+            case 0:
+                break;
         }
 
     }

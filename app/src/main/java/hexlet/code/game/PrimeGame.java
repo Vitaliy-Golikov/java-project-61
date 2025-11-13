@@ -2,7 +2,7 @@ package hexlet.code.game;
 
 import java.util.Random;
 
-public class PrimeGame implements Game{
+public final class PrimeGame implements Game {
 
     private static final int MAX_NUMBER = 101;
     private static final int MIN_NUMBER = 1;

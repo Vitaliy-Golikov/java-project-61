@@ -2,7 +2,7 @@ package hexlet.code.game;
 
 import java.util.Random;
 
-public class ProgressionGame implements Game {
+public final class ProgressionGame implements Game {
 
     private static final int MIN_PROGRESS = 5;
     private static final int MAX_PROGRESS = 11;

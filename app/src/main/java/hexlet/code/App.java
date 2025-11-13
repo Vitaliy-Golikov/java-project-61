@@ -12,6 +12,15 @@ import java.util.Scanner;
 
 
 public class App {
+
+    private static final int GREET = 1;
+    private static final int EVEN_GAME = 2;
+    private static final int CALC_GAME = 3;
+    private static final int GCD_GAME = 4;
+    private static final int PROGRESSION_GAME = 5;
+    private static final int PRIME_GAME = 6;
+    private static final int EXIT = 0;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -27,25 +36,25 @@ public class App {
         int number = scanner.nextInt();
 
         switch (number) {
-            case 1:
+            case GREET:
                 Cli.greet();
                 break;
-            case 2:
+            case EVEN_GAME:
                 GameEngine.playGame(new EvenGame());
                 break;
-            case 3:
+            case CALC_GAME:
                 GameEngine.playGame(new CalculatorGame());
                 break;
-            case 4:
+            case GCD_GAME:
                 GameEngine.playGame(new GcdGame());
                 break;
-            case 5:
+            case PROGRESSION_GAME:
                 GameEngine.playGame(new ProgressionGame());
                 break;
-            case 6:
+            case PRIME_GAME:
                 GameEngine.playGame(new PrimeGame());
                 break;
-            case 0:
+            case EXIT:
                 break;
             default:
                 System.out.println("Unknown user choice " + "'" + number + "'");

@@ -41,4 +41,5 @@ tasks.named<JavaExec>("run") {
 
 checkstyle {
     toolVersion = "10.12.1"
+    config = resources.text.fromFile(file("checkstyle.xml"))
 }

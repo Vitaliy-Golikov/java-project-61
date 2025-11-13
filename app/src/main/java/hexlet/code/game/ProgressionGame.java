@@ -3,6 +3,13 @@ package hexlet.code.game;
 import java.util.Random;
 
 public class ProgressionGame implements Game {
+
+    private static final int MIN_PROGRESS = 5;
+    private static final int MAX_PROGRESS = 11;
+    private static final int LENGTH_PROGRESS = 10;
+    private static final int MIN_ADD_NUMBER = 1;
+    private static final int MAX_ADD_NUMBER = 6;
+
     private Random random = new Random();
     private String currentQuestion;
     private String currentAnswer;
@@ -14,9 +21,9 @@ public class ProgressionGame implements Game {
 
     @Override
     public String generateQuestion() {
-        int startProgression = random.nextInt(5, 11);
-        int addNumber = random.nextInt(1, 6);
-        int lengthProgression = 10;
+        int startProgression = random.nextInt(MIN_PROGRESS, MAX_PROGRESS);
+        int addNumber = random.nextInt(MIN_ADD_NUMBER, MAX_ADD_NUMBER);
+        int lengthProgression = LENGTH_PROGRESS;
         int delNumber = random.nextInt(lengthProgression);
         int progressionNum = startProgression;
         currentQuestion = "";

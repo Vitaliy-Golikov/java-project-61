@@ -3,6 +3,10 @@ package hexlet.code.game;
 import java.util.Random;
 
 public class CalculatorGame implements Game {
+
+    private static final int MAX_NUMBER = 11;
+    private static final int MIN_NUMBER = 1;
+
     private Random random = new Random();
     private String currentQuestion;
     private String currentAnswer;
@@ -14,8 +18,8 @@ public class CalculatorGame implements Game {
 
     @Override
     public String generateQuestion() {
-        int randomNumberOne = random.nextInt(1, 11);
-        int randomNumberTwo = random.nextInt(1, 11);
+        int randomNumberOne = random.nextInt(MIN_NUMBER, MAX_NUMBER);
+        int randomNumberTwo = random.nextInt(MIN_NUMBER, MAX_NUMBER);
         String[] operations = {"+", "-", "*"};
         String operation = operations[random.nextInt(operations.length)];
 

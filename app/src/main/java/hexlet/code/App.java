@@ -2,7 +2,11 @@ package hexlet.code;
 
 import hexlet.code.engine.Cli;
 import hexlet.code.engine.GameEngine;
-import hexlet.code.game.*;
+import hexlet.code.game.EvenGame;
+import hexlet.code.game.CalculatorGame;
+import hexlet.code.game.GcdGame;
+import hexlet.code.game.ProgressionGame;
+import hexlet.code.game.PrimeGame;
 
 import java.util.Scanner;
 

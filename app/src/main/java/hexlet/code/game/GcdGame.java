@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class GcdGame implements Game {
 
+    private static final int MAX_NUMBER = 101;
+    private static final int MIN_NUMBER = 1;
+
     private Random random = new Random();
     private String currentQuestion;
     private String currentAnswer;
@@ -15,8 +18,8 @@ public class GcdGame implements Game {
 
     @Override
     public String generateQuestion() {
-        int numberOne = random.nextInt(1, 101);
-        int numberTwo = random.nextInt(1, 101);
+        int numberOne = random.nextInt(MIN_NUMBER, MAX_NUMBER);
+        int numberTwo = random.nextInt(MIN_NUMBER, MAX_NUMBER);
 
         String originalNumberOne = String.valueOf(numberOne);
         String originalNumberTwo = String.valueOf(numberTwo);

@@ -3,6 +3,10 @@ package hexlet.code.game;
 import java.util.Random;
 
 public class PrimeGame implements Game{
+
+    private static final int MAX_NUMBER = 101;
+    private static final int MIN_NUMBER = 1;
+
     private Random random = new Random();
     private String currentQuestion;
     private String currentAnswer;
@@ -14,7 +18,7 @@ public class PrimeGame implements Game{
 
     @Override
     public String generateQuestion() {
-        int number = random.nextInt(1, 101);
+        int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
         int count = 0;
 
         for (int i = 1; i <= number / 2; i++) {
@@ -25,7 +29,9 @@ public class PrimeGame implements Game{
 
         currentAnswer = (count == 1 && number > 1) ? "yes" : "no";
 
-        return String.valueOf(number);
+        currentQuestion = String.valueOf(number);
+
+        return currentQuestion;
     }
 
     @Override

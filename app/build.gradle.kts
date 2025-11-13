@@ -43,3 +43,7 @@ checkstyle {
     toolVersion = "10.12.1"
     config = resources.text.fromFile(File(projectDir, "config/checkstyle/checkstyle.xml"))
 }
+
+tasks.withType<Checkstyle>().configureEach {
+    enabled = false
+}

@@ -17,59 +17,59 @@ Brain Games
 
 **Greet** - Приветствие и знакомство
 
-![img.png](img.png)
+![img.png](app/assets/img.png)
 
 **Even** - Проверка числа на чётность
 
 Позитивный сценарий
 
-![img_1.png](img_1.png) 
+![img_1.png](app/assets/img_1.png) 
 
 Негативный сценарий
 
-![img_2.png](img_2.png)
+![img_2.png](app/assets/img_2.png)
 
 **Calc** - Арифметические выражения
 
 Позитивный сценарий
 
-![img_3.png](img_3.png)
+![img_3.png](app/assets/img_3.png)
 
 Негативный сценарий
 
-![img_4.png](img_4.png)
+![img_4.png](app/assets/img_4.png)
 
 **GCD** - Наибольший общий делитель
 
 Позитивный сценарий
 
-![img_5.png](img_5.png)
+![img_5.png](app/assets/img_5.png)
 
 Негативный сценарий
 
-![img_6.png](img_6.png)
+![img_6.png](app/assets/img_6.png)
 
 **Progression** - Арифметическая прогрессия
 
 Позитивный сценарий
 
-![img_7.png](img_7.png)
+![img_7.png](app/assets/img_7.png)
 
 Негативный сценарий
 
-![img_8.png](img_8.png)
+![img_8.png](app/assets/img_8.png)
 
 **Prime** - Простые числа
 
 Позитивный сценарий
 
-![img_9.png](img_9.png)
+![img_9.png](app/assets/img_9.png)
 
 Негативный сценарий
 
-![img_10.png](img_10.png)
+![img_10.png](app/assets/img_10.png)
 
 **Exit** - Выход
 
-![img_11.png](img_11.png)
+![img_11.png](app/assets/img_11.png)
 

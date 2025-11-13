@@ -43,6 +43,9 @@ public class App {
                 break;
             case 0:
                 break;
+            default:
+                System.out.println("Unknown user choice " + "'" + number + "'");
+                break;
         }
     }
 }

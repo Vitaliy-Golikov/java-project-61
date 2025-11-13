@@ -32,7 +32,9 @@ public class GcdGame implements Game {
 
         currentAnswer = String.valueOf(numberOne);
 
-        return originalNumberOne + " " + originalNumberTwo;
+        currentQuestion = originalNumberOne + " " + originalNumberTwo;
+
+        return currentQuestion;
 
     }
 

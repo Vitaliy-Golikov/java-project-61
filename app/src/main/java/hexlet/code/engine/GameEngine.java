@@ -1,7 +1,6 @@
 package hexlet.code.engine;
 
 import hexlet.code.game.Game;
-import hexlet.code.user.User;
 import java.util.Scanner;
 
 public class GameEngine {
@@ -10,10 +9,12 @@ public class GameEngine {
         int score = 0;
         int finalScore = 3;
 
-        Cli.greet();
-        User user = Cli.getCurrentUser();
-        String userName = user.getName();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String name = scanner.nextLine();
+        System.out.println("Hello, " + name + "!");
         System.out.println(game.getRules());
+
 
         while (score < finalScore) {
             String question = game.generateQuestion();
@@ -26,13 +27,14 @@ public class GameEngine {
                 System.out.println("Correct!");
                 score++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + game.getCorrectAnswer() + "'.");
-                System.out.println("Let's try again, " + userName + "!");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + game.getCorrectAnswer() + "'.");
+                System.out.println("Let's try again, " + name + "!");
                 return;
             }
         }
 
-        System.out.println("Congratulations, " + userName + "!");
+        System.out.println("Congratulations, " + name + "!");
 
     }
 }

@@ -14,7 +14,7 @@ public class PrimeGame implements Game{
 
     @Override
     public String generateQuestion() {
-        int number = random.nextInt(1,101);
+        int number = random.nextInt(1, 101);
         int count = 0;
 
         for (int i = 1; i <= number / 2; i++) {

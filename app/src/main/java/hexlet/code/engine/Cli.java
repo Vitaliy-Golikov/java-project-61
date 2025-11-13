@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Cli {
 
-    public static String greet() {
+    public static void greet() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -13,6 +13,5 @@ public class Cli {
         String name = scanner.nextLine();
         System.out.println("Hello, " + name + "!");
 
-        return name;
     }
 }

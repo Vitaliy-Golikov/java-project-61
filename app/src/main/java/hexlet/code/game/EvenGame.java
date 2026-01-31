@@ -1,5 +1,7 @@
 package hexlet.code.game;
 
+import hexlet.code.engine.GameEngine;
+
 import java.util.Random;
 
 public final class EvenGame implements Game {
@@ -11,6 +13,11 @@ public final class EvenGame implements Game {
     private String currentQuestion;
     private String currentAnswer;
 
+    public static void startGame() {
+        EvenGame game = new EvenGame();
+        GameEngine.playGame(game);
+    }
+
     @Override
     public String getRules() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
@@ -20,7 +27,7 @@ public final class EvenGame implements Game {
     public String generateQuestion() {
         int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
         currentQuestion = String.valueOf(number);
-        currentAnswer = (number % 2 == 0) ? "yes" : "no";
+        currentAnswer = isEven(number);
         return currentQuestion;
     }
 
@@ -33,4 +40,9 @@ public final class EvenGame implements Game {
     public boolean checkAnswer(String userAnswer) {
         return currentAnswer.equals(userAnswer);
     }
+
+    private static String isEven(int number) {
+        return (number % 2 == 0) ? "yes" : "no";
+    }
+
 }

@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.engine.Cli;
-import hexlet.code.engine.GameEngine;
 import hexlet.code.game.EvenGame;
 import hexlet.code.game.CalculatorGame;
 import hexlet.code.game.GcdGame;
@@ -40,25 +39,24 @@ public class App {
                 Cli.greet();
                 break;
             case EVEN_GAME:
-                GameEngine.playGame(new EvenGame());
+                EvenGame.startGame();
                 break;
             case CALC_GAME:
-                GameEngine.playGame(new CalculatorGame());
+                CalculatorGame.startGame();
                 break;
             case GCD_GAME:
-                GameEngine.playGame(new GcdGame());
+                GcdGame.startGame();
                 break;
             case PROGRESSION_GAME:
-                GameEngine.playGame(new ProgressionGame());
+                ProgressionGame.startGame();
                 break;
             case PRIME_GAME:
-                GameEngine.playGame(new PrimeGame());
+                PrimeGame.startGame();
                 break;
             case EXIT:
                 break;
             default:
-                System.out.println("Unknown user choice " + "'" + number + "'");
-                break;
+                throw new RuntimeException("Unknown user input " + number);
         }
     }
 }

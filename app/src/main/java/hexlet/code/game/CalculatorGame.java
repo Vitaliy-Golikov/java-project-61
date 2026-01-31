@@ -1,6 +1,7 @@
 package hexlet.code.game;
 
 import java.util.Random;
+import hexlet.code.engine.GameEngine;
 
 public final class CalculatorGame implements Game {
 
@@ -10,6 +11,11 @@ public final class CalculatorGame implements Game {
     private Random random = new Random();
     private String currentQuestion;
     private String currentAnswer;
+
+    public static void startGame() {
+        CalculatorGame game = new CalculatorGame();
+        GameEngine.playGame(game);
+    }
 
     @Override
     public String getRules() {
@@ -24,20 +30,7 @@ public final class CalculatorGame implements Game {
         String operation = operations[random.nextInt(operations.length)];
 
         currentQuestion = randomNumberOne + " " + operation + " " + randomNumberTwo;
-
-        switch (operation) {
-            case "+":
-                currentAnswer = String.valueOf(randomNumberOne + randomNumberTwo);
-                break;
-            case "-":
-                currentAnswer = String.valueOf(randomNumberOne - randomNumberTwo);
-                break;
-            case "*":
-                currentAnswer = String.valueOf(randomNumberOne * randomNumberTwo);
-                break;
-            default:
-                currentAnswer = "0";
-        }
+        currentAnswer = calc(randomNumberOne, randomNumberTwo, operation);
 
         return currentQuestion;
     }
@@ -51,4 +44,14 @@ public final class CalculatorGame implements Game {
     public boolean checkAnswer(String userAnswer) {
         return currentAnswer.equals(userAnswer);
     }
+
+    private static String calc(int a, int b, String operation) {
+        return switch (operation) {
+            case "+" -> String.valueOf(a + b);
+            case "-" -> String.valueOf(a - b);
+            case "*" -> String.valueOf(a * b);
+            default -> "0";
+        };
+    }
+
 }

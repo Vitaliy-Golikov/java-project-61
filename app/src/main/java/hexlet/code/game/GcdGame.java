@@ -1,5 +1,7 @@
 package hexlet.code.game;
 
+import hexlet.code.engine.GameEngine;
+
 import java.util.Random;
 
 public final class GcdGame implements Game {
@@ -10,6 +12,11 @@ public final class GcdGame implements Game {
     private Random random = new Random();
     private String currentQuestion;
     private String currentAnswer;
+
+    public static void startGame() {
+        GcdGame game = new GcdGame();
+        GameEngine.playGame(game);
+    }
 
     @Override
     public String getRules() {
@@ -24,16 +31,7 @@ public final class GcdGame implements Game {
         String originalNumberOne = String.valueOf(numberOne);
         String originalNumberTwo = String.valueOf(numberTwo);
 
-        while (numberOne != numberTwo) {
-
-            if (numberOne > numberTwo) {
-                numberOne -= numberTwo;
-            } else {
-                numberTwo -= numberOne;
-            }
-        }
-
-        currentAnswer = String.valueOf(numberOne);
+        currentAnswer = gcd(numberOne, numberTwo);
 
         currentQuestion = originalNumberOne + " " + originalNumberTwo;
 
@@ -49,5 +47,19 @@ public final class GcdGame implements Game {
     @Override
     public boolean checkAnswer(String userAnswer) {
         return currentAnswer.equals(userAnswer);
+    }
+
+    public static String gcd(int a, int b) {
+        int num1 = a;
+        int num2 = b;
+
+        while (num1 != num2) {
+            if (num1 > num2) {
+                num1 -= num2;
+            } else {
+                num2 -= num1;
+            }
+        }
+        return String.valueOf(num1);
     }
 }

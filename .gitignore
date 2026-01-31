@@ -1,33 +1,29 @@
-﻿.gradle
+﻿### Java ###
+*.class
+*.jar
+*.war
+*.ear
+
+### Build tools ###
+.gradle/
 build/
-.idea
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+.idea/
 *.iml
+*.iws
 *.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
 ### Eclipse ###
-.apt_generated
+.settings/
+.project
 .classpath
 .factorypath
-.project
-.settings
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
 ### NetBeans ###
 /nbproject/private/
@@ -39,5 +35,17 @@ bin/
 ### VS Code ###
 .vscode/
 
-### Mac OS ###
+### OS generated files ###
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+### Logs ###
+*.log
+
+### Environment variables ###
+.env

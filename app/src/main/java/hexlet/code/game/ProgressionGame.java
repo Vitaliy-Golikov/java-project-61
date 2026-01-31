@@ -1,5 +1,7 @@
 package hexlet.code.game;
 
+import hexlet.code.engine.GameEngine;
+
 import java.util.Random;
 
 public final class ProgressionGame implements Game {
@@ -14,6 +16,11 @@ public final class ProgressionGame implements Game {
     private String currentQuestion;
     private String currentAnswer;
 
+    public static void startGame() {
+        ProgressionGame game = new ProgressionGame();
+        GameEngine.playGame(game);
+    }
+
     @Override
     public String getRules() {
         return "What number is missing in the progression?";
@@ -25,19 +32,17 @@ public final class ProgressionGame implements Game {
         int addNumber = random.nextInt(MIN_ADD_NUMBER, MAX_ADD_NUMBER);
         int lengthProgression = LENGTH_PROGRESS;
         int delNumber = random.nextInt(lengthProgression);
-        int progressionNum = startProgression;
+        String[] progression = generateProgression(startProgression, addNumber, lengthProgression);
         currentQuestion = "";
 
         for (int i = 0; i < lengthProgression; i++) {
 
             if (i == delNumber) {
                 currentQuestion += " " + "..";
-                currentAnswer = String.valueOf(progressionNum);
+                currentAnswer = String.valueOf(progression[i]);
             } else {
-                currentQuestion += " " + String.valueOf(progressionNum);
+                currentQuestion += " " + String.valueOf(progression[i]);
             }
-
-            progressionNum += addNumber;
 
         }
 
@@ -54,4 +59,13 @@ public final class ProgressionGame implements Game {
     public boolean checkAnswer(String userAnswer) {
         return currentAnswer.equals(userAnswer);
     }
+
+    private static String[] generateProgression(int start, int step, int length) {
+        String[] progression = new String[length];
+        for (int i = 0; i < length; i++) {
+            progression[i] = String.valueOf(start + i * step);
+        }
+        return progression;
+    }
+
 }

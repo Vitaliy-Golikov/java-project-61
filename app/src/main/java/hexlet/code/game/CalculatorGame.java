@@ -30,7 +30,7 @@ public final class CalculatorGame implements Game {
         String operation = operations[random.nextInt(operations.length)];
 
         currentQuestion = randomNumberOne + " " + operation + " " + randomNumberTwo;
-        currentAnswer = calc(randomNumberOne, randomNumberTwo, operation);
+        currentAnswer = String.valueOf(calc(randomNumberOne, randomNumberTwo, operation));
 
         return currentQuestion;
     }
@@ -45,13 +45,12 @@ public final class CalculatorGame implements Game {
         return currentAnswer.equals(userAnswer);
     }
 
-    private static String calc(int a, int b, String operation) {
+    private static int calc(int a, int b, String operation) {
         return switch (operation) {
-            case "+" -> String.valueOf(a + b);
-            case "-" -> String.valueOf(a - b);
-            case "*" -> String.valueOf(a * b);
-            default -> "0";
+            case "+" -> a + b;
+            case "-" -> a - b;
+            case "*" -> a * b;
+            default -> throw new RuntimeException("Unknown operation: " + operation);
         };
     }
-
 }

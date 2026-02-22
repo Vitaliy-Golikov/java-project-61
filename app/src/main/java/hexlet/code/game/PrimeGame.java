@@ -1,7 +1,6 @@
 package hexlet.code.game;
 
 import hexlet.code.engine.GameEngine;
-
 import java.util.Random;
 
 public final class PrimeGame implements Game {
@@ -26,13 +25,13 @@ public final class PrimeGame implements Game {
     @Override
     public String generateQuestion() {
         int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
-        currentAnswer = isPrime(number);
+        currentAnswer = isPrime(number) ? "yes" : "no";
         currentQuestion = String.valueOf(number);
         return currentQuestion;
     }
 
     @Override
-    public  String getCorrectAnswer() {
+    public String getCorrectAnswer() {
         return currentAnswer;
     }
 
@@ -41,15 +40,16 @@ public final class PrimeGame implements Game {
         return currentAnswer.equals(userAnswer);
     }
 
-    public static String isPrime(int a) {
-        int num = a;
-        int count = 0;
+    public static boolean isPrime(int a) {
+        if (a <= 1) {
+            return false;
+        }
 
-        for (int i = 1; i <= num / 2; i++) {
-            if (num % i == 0) {
-                count++;
+        for (int i = 2; i <= Math.sqrt(a); i++) {
+            if (a % i == 0) {
+                return false;
             }
         }
-        return (count == 1 && num > 1) ? "yes" : "no";
+        return true;
     }
 }

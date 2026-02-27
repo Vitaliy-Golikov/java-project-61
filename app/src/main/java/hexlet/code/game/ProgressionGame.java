@@ -46,4 +46,4 @@ public final class ProgressionGame implements Game {
         }
         return progression;
     }
-}3
+}

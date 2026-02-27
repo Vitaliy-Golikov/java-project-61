@@ -9,8 +9,6 @@ public final class GcdGame implements Game {
     private static final int MIN_NUMBER = 1;
 
     private Random random = new Random();
-    private String currentQuestion;
-    private String currentAnswer;
 
     public static void startGame() {
         GcdGame game = new GcdGame();
@@ -23,24 +21,14 @@ public final class GcdGame implements Game {
     }
 
     @Override
-    public String generateQuestion() {
+    public String[] generateQuestion() {
         int numberOne = random.nextInt(MIN_NUMBER, MAX_NUMBER);
         int numberTwo = random.nextInt(MIN_NUMBER, MAX_NUMBER);
 
-        currentAnswer = String.valueOf(gcd(numberOne, numberTwo));
-        currentQuestion = numberOne + " " + numberTwo;
+        String question = numberOne + " " + numberTwo;
+        String answer = String.valueOf(gcd(numberOne, numberTwo));
 
-        return currentQuestion;
-    }
-
-    @Override
-    public String getCorrectAnswer() {
-        return currentAnswer;
-    }
-
-    @Override
-    public boolean checkAnswer(String userAnswer) {
-        return currentAnswer.equals(userAnswer);
+        return new String[]{question, answer};
     }
 
     public static int gcd(int a, int b) {

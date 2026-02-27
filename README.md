@@ -1,5 +1,6 @@
 # Java Project 61
-
+[![Maintainability](https://qlty.sh/gh/Vitaliy-Golikov/projects/java-project-61/maintainability.svg)](https://qlty.sh/gh/Vitaliy-Golikov/projects/java-project-61)
+[![Actions Status](https://github.com/Vitaliy-Golikov/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/Vitaliy-Golikov/java-project-61/actions)   
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Vitaliy-Golikov_java-project-61&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Vitaliy-Golikov_java-project-61)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Vitaliy-Golikov_java-project-61&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Vitaliy-Golikov_java-project-61)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Vitaliy-Golikov_java-project-61&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Vitaliy-Golikov_java-project-61)

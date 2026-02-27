@@ -9,8 +9,6 @@ public final class EvenGame implements Game {
     private static final int MIN_NUMBER = 1;
 
     private Random random = new Random();
-    private String currentQuestion;
-    private String currentAnswer;
 
     public static void startGame() {
         EvenGame game = new EvenGame();
@@ -23,21 +21,11 @@ public final class EvenGame implements Game {
     }
 
     @Override
-    public String generateQuestion() {
+    public String[] generateQuestion() {
         int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
-        currentQuestion = String.valueOf(number);
-        currentAnswer = isEven(number) ? "yes" : "no";
-        return currentQuestion;
-    }
-
-    @Override
-    public String getCorrectAnswer() {
-        return currentAnswer;
-    }
-
-    @Override
-    public boolean checkAnswer(String userAnswer) {
-        return currentAnswer.equals(userAnswer);
+        String question = String.valueOf(number);
+        String answer = isEven(number) ? "yes" : "no";
+        return new String[]{question, answer};
     }
 
     private static boolean isEven(int number) {

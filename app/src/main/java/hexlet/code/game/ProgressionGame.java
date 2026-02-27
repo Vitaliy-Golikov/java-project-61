@@ -12,8 +12,6 @@ public final class ProgressionGame implements Game {
     private static final int LENGTH_PROGRESS = 10;
 
     private Random random = new Random();
-    private String currentQuestion;
-    private String currentAnswer;
 
     public static void startGame() {
         ProgressionGame game = new ProgressionGame();
@@ -26,28 +24,19 @@ public final class ProgressionGame implements Game {
     }
 
     @Override
-    public String generateQuestion() {
+    public String[] generateQuestion() {
         int start = random.nextInt(MIN_START, MAX_START);
         int step = random.nextInt(MIN_STEP, MAX_STEP);
         int hiddenIndex = random.nextInt(LENGTH_PROGRESS);
 
         String[] progression = generateProgression(start, step, LENGTH_PROGRESS);
 
-        currentAnswer = progression[hiddenIndex];
+        String answer = progression[hiddenIndex];
         progression[hiddenIndex] = "..";
 
-        currentQuestion = String.join(" ", progression);
-        return currentQuestion;
-    }
+        String question = String.join(" ", progression);
 
-    @Override
-    public String getCorrectAnswer() {
-        return currentAnswer;
-    }
-
-    @Override
-    public boolean checkAnswer(String userAnswer) {
-        return currentAnswer.equals(userAnswer);
+        return new String[]{question, answer};
     }
 
     private static String[] generateProgression(int start, int step, int length) {
@@ -57,4 +46,4 @@ public final class ProgressionGame implements Game {
         }
         return progression;
     }
-}
+}3

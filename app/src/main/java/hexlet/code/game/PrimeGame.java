@@ -9,8 +9,6 @@ public final class PrimeGame implements Game {
     private static final int MIN_NUMBER = 1;
 
     private Random random = new Random();
-    private String currentQuestion;
-    private String currentAnswer;
 
     public static void startGame() {
         PrimeGame game = new PrimeGame();
@@ -23,21 +21,11 @@ public final class PrimeGame implements Game {
     }
 
     @Override
-    public String generateQuestion() {
+    public String[] generateQuestion() {
         int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
-        currentAnswer = isPrime(number) ? "yes" : "no";
-        currentQuestion = String.valueOf(number);
-        return currentQuestion;
-    }
-
-    @Override
-    public String getCorrectAnswer() {
-        return currentAnswer;
-    }
-
-    @Override
-    public boolean checkAnswer(String userAnswer) {
-        return currentAnswer.equals(userAnswer);
+        String question = String.valueOf(number);
+        String answer = isPrime(number) ? "yes" : "no";
+        return new String[]{question, answer};
     }
 
     public static boolean isPrime(int a) {
@@ -45,11 +33,12 @@ public final class PrimeGame implements Game {
             return false;
         }
 
-        for (int i = 2; i <= Math.sqrt(a); i++) {
+        int count = 0;
+        for (int i = 1; i <= a; i++) {
             if (a % i == 0) {
-                return false;
+                count++;
             }
         }
-        return true;
+        return count == 2;
     }
 }

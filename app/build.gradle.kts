@@ -2,6 +2,7 @@ plugins {
     application
     id("org.sonarqube") version "4.4.1.3373"
     checkstyle
+    jacoco
 }
 
 repositories {
@@ -34,6 +35,8 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
+
+tasks.jacocoTestReport { reports { xml.required.set(true) } }
 
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
